@@ -115,6 +115,12 @@ npm run <span class="hljs-built_in">test</span>:ie
 					<li>Firefox 32+</li>
 					<li>Chrome 38+</li>
 				</ul>
+				<h2 id="bundling-for-browser-use">Bundling for Browser Use</h2>
+				<p>Follow the package install instructions first.</p>
+				<p>Bundling requires <code>browserify</code> and <code>browserify-css</code>.</p>
+				<pre><code class="lang-bash">npm install --save-dev browserify browserify-css
+browserify your_source.js -t browserify-css -o your_app.js --debug
+</code></pre>
 				<h2 id="usage-examples">Usage Examples</h2>
 				<p><strong>Note:</strong> This module is fully compatible with Node/Babel/ES6/ES5. Simply
 				omit the type declarations when using a language other than TypeScript.</p>
