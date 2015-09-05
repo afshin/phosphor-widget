@@ -148,7 +148,6 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="widget.html#dispose" class="tsd-kind-icon">dispose</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="widget.html#hasclass" class="tsd-kind-icon">has<wbr>Class</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="widget.html#insertchild" class="tsd-kind-icon">insert<wbr>Child</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="widget.html#layout" class="tsd-kind-icon">layout</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="widget.html#movechild" class="tsd-kind-icon">move<wbr>Child</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="widget.html#onafterattach" class="tsd-kind-icon">on<wbr>After<wbr>Attach</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="widget.html#onaftershow" class="tsd-kind-icon">on<wbr>After<wbr>Show</a></li>
@@ -210,7 +209,7 @@
 					<div class="tsd-signature tsd-kind-icon">_children<span class="tsd-signature-symbol">:</span> <a href="widget.html" class="tsd-signature-type">Widget</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L853">index.ts:853</a></li>
+							<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L826">index.ts:826</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +219,7 @@
 					<div class="tsd-signature tsd-kind-icon">_flags<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L851">index.ts:851</a></li>
+							<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L824">index.ts:824</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +229,7 @@
 					<div class="tsd-signature tsd-kind-icon">_parent<span class="tsd-signature-symbol">:</span> <a href="widget.html" class="tsd-signature-type">Widget</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L852">index.ts:852</a></li>
+							<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L825">index.ts:825</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -775,7 +774,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L596">index.ts:596</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L568">index.ts:568</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -790,9 +789,6 @@
 									<div class="tsd-comment tsd-typography">
 										<p>Whether to dispatch the message immediately
 										(<code>true</code>) or in the future (<code>false</code>). The default is <code>false</code>.</p>
-										<h4 id="notes">Notes</h4>
-										<p>This method uses <code>sendMessage</code> to dispatch the message immediately,
-										and <code>postMessage</code> to dispatch in the future.</p>
 										<p><strong>See also:</strong> <a href="../globals.html#msg_close_request">MSG_CLOSE_REQUEST</a>, <a href="widget.html#oncloserequest">onCloseRequest</a></p>
 									</div>
 								</li>
@@ -811,7 +807,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L684">index.ts:684</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L656">index.ts:656</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -954,42 +950,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="layout" class="tsd-anchor"></a>
-					<h3>layout</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">layout<span class="tsd-signature-symbol">(</span>immediate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L576">index.ts:576</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Dispatch a <code>&#39;layout-request&#39;</code> message to the widget.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> immediate: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Whether to dispatch the message immediately
-										(<code>true</code>) or in the future (<code>false</code>). The default is <code>false</code>.</p>
-										<h4 id="notes">Notes</h4>
-										<p>This method uses <code>sendMessage</code> to dispatch the message immediately,
-										and <code>postMessage</code> to dispatch in the future.</p>
-										<p><strong>See also:</strong> <a href="../globals.html#msg_layout_request">MSG_LAYOUT_REQUEST</a>, <a href="widget.html#onlayoutrequest">onLayoutRequest</a></p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="movechild" class="tsd-anchor"></a>
 					<h3>move<wbr>Child</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1043,7 +1003,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L828">index.ts:828</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L801">index.ts:801</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1072,7 +1032,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L812">index.ts:812</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L785">index.ts:785</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1102,7 +1062,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L835">index.ts:835</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L808">index.ts:808</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1131,7 +1091,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L821">index.ts:821</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L794">index.ts:794</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1161,7 +1121,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L706">index.ts:706</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L678">index.ts:678</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1196,7 +1156,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L849">index.ts:849</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L822">index.ts:822</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1225,7 +1185,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L740">index.ts:740</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L712">index.ts:712</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1260,7 +1220,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L723">index.ts:723</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L695">index.ts:695</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1294,7 +1254,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L842">index.ts:842</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L815">index.ts:815</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1323,13 +1283,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L788">index.ts:788</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L761">index.ts:761</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>A message handler invoked on a <code>&#39;close-request&#39;</code> message.</p>
 								</div>
+								<h4 id="notes">Notes</h4>
 								<p>The default implementation of this handler will unparent or detach
 									the widget as appropriate. Subclasses may reimplement this handler
 								for custom close behavior.</p>
@@ -1355,7 +1316,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L803">index.ts:803</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L776">index.ts:776</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1363,7 +1324,7 @@
 									<p>A message handler invoked on a <code>&#39;layout-request&#39;</code> message.</p>
 								</div>
 								<p>The default implementation of this handler is a no-op.</p>
-								<p><strong>See also:</strong> <a href="widget.html#layout">layout</a>, <a href="../globals.html#msg_layout_request">MSG_LAYOUT_REQUEST</a></p>
+								<p><strong>See also:</strong> <a href="../globals.html#msg_layout_request">MSG_LAYOUT_REQUEST</a></p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -1385,7 +1346,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L759">index.ts:759</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L730">index.ts:730</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1393,10 +1354,9 @@
 									<p>A message handler invoked on a <code>&#39;resize&#39;</code> message.</p>
 								</div>
 								<h4 id="notes">Notes</h4>
-								<p>Since it is not possible to efficiently know (in general) whether
-									a child widget has been resized due to a resize of its parent, the
-									default implementation of this method dispatches an <a href="resizemessage.html#unknownsize">UnknownSize</a>
-								resize message to each child.</p>
+								<p>The default implementation of this handler sends an <a href="resizemessage.html#unknownsize">UnknownSize</a>
+									resize message to each child. This ensures that the resize messages
+								propagate through all widgets in the hierarchy.</p>
 								<p>Subclasses may reimplement this method as needed, but they must
 								dispatch <code>&#39;resize&#39;</code> messages to their children as appropriate.</p>
 							</div>
@@ -1420,13 +1380,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L775">index.ts:775</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L747">index.ts:747</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>A message handler invoked on an <code>&#39;update-request&#39;</code> message.</p>
 								</div>
+								<h4 id="notes">Notes</h4>
 								<p>The default implementation of this handler sends an <a href="resizemessage.html#unknownsize">UnknownSize</a>
 									resize message to each child. This ensures that the resize messages
 								propagate through all widgets in the hierarchy.</p>
@@ -1454,7 +1415,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L612">index.ts:612</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L584">index.ts:584</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1630,7 +1591,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L556">index.ts:556</a></li>
+									<li>Defined in <a href="https://github.com/phosphorjs/phosphor-widget/blob/HEAD/src/index.ts#L552">index.ts:552</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1645,9 +1606,6 @@
 									<div class="tsd-comment tsd-typography">
 										<p>Whether to dispatch the message immediately
 										(<code>true</code>) or in the future (<code>false</code>). The default is <code>false</code>.</p>
-										<h4 id="notes">Notes</h4>
-										<p>This method uses <code>sendMessage</code> to dispatch the message immediately,
-										and <code>postMessage</code> to dispatch in the future.</p>
 										<p><strong>See also:</strong> <a href="../globals.html#msg_update_request">MSG_UPDATE_REQUEST</a>, <a href="widget.html#onupdaterequest">onUpdateRequest</a></p>
 									</div>
 								</li>
@@ -1783,9 +1741,6 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="widget.html#insertchild" class="tsd-kind-icon">insert<wbr>Child</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="widget.html#layout" class="tsd-kind-icon">layout</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="widget.html#movechild" class="tsd-kind-icon">move<wbr>Child</a>
