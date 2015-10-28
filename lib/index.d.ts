@@ -193,7 +193,7 @@ export declare class Widget extends NodeWrapper implements IDisposable, IMessage
      * **See also:** [[closableHint]], [[close]]
      */
     static closableHintProperty: Property<Widget, boolean>;
-    static clearDragMimeData(event: DragEvent): void;
+    static clearDragMimeData(): void;
     static getDragMimeData(event: DragEvent): () => Widget;
     static setDragMimeData(event: DragEvent, factory: () => Widget): void;
     /**
