@@ -277,7 +277,7 @@ class Widget extends NodeWrapper implements IDisposable, IMessageHandler {
     value: false,
   });
 
-  static clearDragMimeData(event: DragEvent): void {
+  static clearDragMimeData(): void {
     dragFactory = null;
   }
 
