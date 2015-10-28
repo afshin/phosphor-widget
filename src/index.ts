@@ -144,10 +144,13 @@ const MSG_BEFORE_DETACH = new Message('before-detach');
  * The mime type for Widget drag and drop operations, for use with the native
  * DataTransfer object's setData and getData methods.
  */
-export
 const WIDGET_MIME_TYPE = 'application/x-phosphor-widget';
 
-const WIDGET_MIME_DATA = 'truthy';
+/**
+ * The flag value in dragging events, for use with the native DataTransfer's
+ * setData and getData methods. Any non-empty string will work.
+ */
+const WIDGET_MIME_DATA = 'dummy';
 
 /**
  * The class name added to Widget instances.
@@ -277,24 +280,33 @@ class Widget extends NodeWrapper implements IDisposable, IMessageHandler {
     value: false,
   });
 
+  /**
+   * Clear the internal reference to a DragEvent's eventual handler, which
+   * is stored in the local private variable: dragFactory. This method should
+   * be called in dragend event handlers.
+   */
   static clearDragMimeData(): void {
     dragFactory = null;
   }
 
+  /**
+   * Get the Widget creator factory associated with a drag and drop operation.
+   * This method will typically be called in a drop event handler.
+   */
   static getDragMimeData(event: DragEvent): () => Widget {
-    if (event.dataTransfer.getData(WIDGET_MIME_TYPE) && dragFactory) {
-      return dragFactory;
-    } else {
-      return null;
-    }
+    return event.dataTransfer.getData(WIDGET_MIME_TYPE) ? dragFactory : null;
   }
 
+  /**
+   * Set the internal reference to a DragEvent's eventual handler, which is
+   * store in the local private variable: dragFactory. This method should be
+   * called in dragstart event handlers.
+   */
   static setDragMimeData(event: DragEvent, factory: () => Widget): void {
-    if (!factory) {
-      return;
+    if (factory) {
+      dragFactory = factory;
+      event.dataTransfer.setData(WIDGET_MIME_TYPE, WIDGET_MIME_DATA);
     }
-    dragFactory = factory;
-    event.dataTransfer.setData(WIDGET_MIME_TYPE, WIDGET_MIME_DATA);
   }
 
   /**

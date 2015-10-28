@@ -91,11 +91,6 @@ export declare const MSG_AFTER_ATTACH: Message;
  */
 export declare const MSG_BEFORE_DETACH: Message;
 /**
- * The mime type for Widget drag and drop operations, for use with the native
- * DataTransfer object's setData and getData methods.
- */
-export declare const WIDGET_MIME_TYPE: string;
-/**
  * The base class of the Phosphor widget hierarchy.
  *
  * #### Notes
@@ -193,8 +188,22 @@ export declare class Widget extends NodeWrapper implements IDisposable, IMessage
      * **See also:** [[closableHint]], [[close]]
      */
     static closableHintProperty: Property<Widget, boolean>;
+    /**
+     * Clear the internal reference to a DragEvent's eventual handler, which
+     * is stored in the local private variable: dragFactory. This method should
+     * be called in dragend event handlers.
+     */
     static clearDragMimeData(): void;
+    /**
+     * Get the Widget creator factory associated with a drag and drop operation.
+     * This method will typically be called on a drop event handler.
+     */
     static getDragMimeData(event: DragEvent): () => Widget;
+    /**
+     * Set the internal reference to a DragEvent's eventual handler, which is
+     * store in the local private variable: dragFactory. This method should be
+     * called in dragstart event handlers.
+     */
     static setDragMimeData(event: DragEvent, factory: () => Widget): void;
     /**
      * Construct a new widget.
