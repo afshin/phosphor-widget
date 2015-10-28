@@ -141,6 +141,15 @@ export
 const MSG_BEFORE_DETACH = new Message('before-detach');
 
 /**
+ * The mime type for Widget drag and drop operations, for use with the native
+ * DataTransfer object's setData and getData methods.
+ */
+export
+const WIDGET_MIME_TYPE = 'application/x-phosphor-widget';
+
+const WIDGET_MIME_DATA = 'truthy';
+
+/**
  * The class name added to Widget instances.
  */
 const WIDGET_CLASS = 'p-Widget';
@@ -150,6 +159,7 @@ const WIDGET_CLASS = 'p-Widget';
  */
 const HIDDEN_CLASS = 'p-mod-hidden';
 
+let dragFactory: () => Widget = null;
 
 /**
  * The base class of the Phosphor widget hierarchy.
@@ -266,6 +276,26 @@ class Widget extends NodeWrapper implements IDisposable, IMessageHandler {
   static closableHintProperty = new Property<Widget, boolean>({
     value: false,
   });
+
+  static clearDragMimeData(event: DragEvent): void {
+    dragFactory = null;
+  }
+
+  static getDragMimeData(event: DragEvent): () => Widget {
+    if (event.dataTransfer.getData(WIDGET_MIME_TYPE) && dragFactory) {
+      return dragFactory;
+    } else {
+      return null;
+    }
+  }
+
+  static setDragMimeData(event: DragEvent, factory: () => Widget): void {
+    if (!factory) {
+      return;
+    }
+    dragFactory = factory;
+    event.dataTransfer.setData(WIDGET_MIME_TYPE, WIDGET_MIME_DATA);
+  }
 
   /**
    * Construct a new widget.
@@ -1426,6 +1456,22 @@ class ChangeTitleMessage extends Message {
   private _title: string;
 }
 
+
+/**
+ * An object which contains the MIME type and reference for use with the
+ * drag and drop DataTransfer object.
+ */
+export
+interface IDragMimeData {
+  /**
+   * The MIME type for Widget instances.
+   */
+  mime: string;
+  /**
+   * The handle used to retrieve a Widget factory upon a successful drop.
+   */
+  reference: string;
+}
 
 /**
  * An object which stores offset geometry information.
