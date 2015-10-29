@@ -1468,23 +1468,6 @@ class ChangeTitleMessage extends Message {
   private _title: string;
 }
 
-
-/**
- * An object which contains the MIME type and reference for use with the
- * drag and drop DataTransfer object.
- */
-export
-interface IDragMimeData {
-  /**
-   * The MIME type for Widget instances.
-   */
-  mime: string;
-  /**
-   * The handle used to retrieve a Widget factory upon a successful drop.
-   */
-  reference: string;
-}
-
 /**
  * An object which stores offset geometry information.
  */
