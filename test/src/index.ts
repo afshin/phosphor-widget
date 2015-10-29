@@ -30,7 +30,6 @@ import {
 
 import './index.css';
 
-
 class LogWidget extends Widget {
 
   messages: string[] = [];
@@ -327,6 +326,47 @@ describe('phosphor-widget', () => {
       it('should default to `false`', () => {
         var widget = new Widget();
         expect(Widget.closableHintProperty.get(widget)).to.be(false);
+      });
+
+    });
+
+    describe('drag mime data methods', () => {
+
+      function createDragEvent(): DragEvent {
+        var data: { [mime: string]: string } = {};
+        var event = document.createEvent('Event');
+        (<any>event).dataTransfer = {
+          getData: (mime: string): string => {
+            return mime in data ? data[mime] : null;
+          },
+          setData: (mime: string, datum: string): void => {
+            data[mime] = datum;
+          }
+        };
+        return <DragEvent>event;
+      }
+
+      var event = createDragEvent();
+      var factory = () => { return new Widget(); };
+
+      describe('.setDragMimeData', () => {
+        it('should set internal widget factory', () => {
+          Widget.setDragMimeData(event, factory);
+          expect(Widget.setDragMimeData(event, factory)).to.be(void 0);
+        });
+      });
+
+      describe('.getDragMimeData', () => {
+        it('should get internal widget factory', () => {
+          expect(Widget.getDragMimeData(event)).to.be(factory);
+        });
+      });
+
+      describe('.clearDragMimeData', () => {
+        it('should clear internal widget factory', () => {
+          expect(Widget.clearDragMimeData()).to.be(void 0);
+          expect(Widget.getDragMimeData(event)).to.be(null);
+        });
       });
 
     });
