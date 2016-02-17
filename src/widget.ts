@@ -288,6 +288,15 @@ class Widget extends NodeWrapper implements IDisposable, IMessageHandler {
   }
 
   /**
+   * Send a `'focus-request'` message to the widget.
+   *
+   * **See also:** [[MsgFocusRequest]]
+   */
+  focus(): void {
+    sendMessage(this, Widget.MsgFocusRequest);
+  }
+
+  /**
    * Send a `'close-request'` message to the widget.
    *
    * **See also:** [[MsgCloseRequest]]
@@ -490,6 +499,10 @@ class Widget extends NodeWrapper implements IDisposable, IMessageHandler {
       this.notifyLayout(msg);
       this.onCloseRequest(msg);
       break;
+    case 'focus-request':
+      this.notifyLayout(msg);
+      this.onFocusRequest(msg);
+      break;
     case 'child-added':
       this.notifyLayout(msg);
       this.onChildAdded(msg as ChildMessage);
@@ -531,6 +544,13 @@ class Widget extends NodeWrapper implements IDisposable, IMessageHandler {
       this.detach();
     }
   }
+
+  /**
+   * A message handler invoked on a `'focus-request'` message.
+   *
+   * The default implementation of this handler is a no-op.
+   */
+  protected onFocusRequest(msg: Message): void { }
 
   /**
    * A message handler invoked on a `'resize'` message.
@@ -710,6 +730,14 @@ namespace Widget {
    */
   export
   const MsgBeforeDetach = new Message('before-detach');
+  /**
+   * A singleton `'focus-request'` message.
+   *
+   * #### Notes
+   * This message is sent to a widget when a semantic action asks for focus.
+   */
+  export
+  const MsgFocusRequest = new Message('focus-request');
 }
 
 

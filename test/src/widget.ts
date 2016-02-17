@@ -453,6 +453,17 @@ describe('phosphor-widget', () => {
 
     });
 
+    describe('#focus()', () => {
+
+      it('should send a `focus-request` message', () => {
+        let widget = new LogWidget();
+        expect(widget.messages).to.eql([]);
+        widget.focus();
+        expect(widget.messages).to.eql(['focus-request']);
+      });
+
+    });
+
     describe('#show()', () => {
 
       it('should set `isHidden` to `false`', () => {
