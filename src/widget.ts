@@ -730,6 +730,7 @@ namespace Widget {
    */
   export
   const MsgBeforeDetach = new Message('before-detach');
+
   /**
    * A singleton `'focus-request'` message.
    *
